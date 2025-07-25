@@ -1,0 +1,28 @@
+{
+  "name": "shopping_cat",
+  "private": true,
+  "version": "3.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "api": "json-server --watch src/data/cats.json --port 3002"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.13",
+    "json-server": "^1.0.0-beta.3",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.8"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.6.0",
+    "alpinejs": "^3.14.9",
+    "axios": "^1.7.7",
+    "notyf": "^3.10.0",
+    "vue": "^3.5.12"
+  }
+}

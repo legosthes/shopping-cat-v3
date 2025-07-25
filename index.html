@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="cupcake">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shopping Cart Practice v3</title>
+    <script type="module" src="｀./src/scripts/app.js"></script>
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main>
+        <header>
+          <nav class="shadow navbar bg-base-100">
+            <div class="flex-1">
+              <a class="text-xl btn btn-ghost"
+                ><i class="fas fa-gem"></i> 賺很大商店</a
+              >
+            </div>
+            <div class="flex-none">
+              <ul class="px-1 menu menu-horizontal">
+                <li>
+                  <a
+                    href="https://github.com/5xTraining/shopping-cat-v3"
+                    target="_blank"
+                    ><i class="fa-brands fa-github"></i> GitHub</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <section class="container px-6 py-3 mx-auto" x-data="shopping_form">
+          <p class="px-6 py-2 bg-yellow-400 rounded-full">請以認養取代購買！</p>
+          <div
+            class="grid grid-cols-1 gap-3 my-2 lg:grid-cols-6 sm:grid-cols-3"
+          >
+            <!-- cat start -->
+            <template x-for="cat in catList">
+              <div class="shadow card bg-base-100">
+                <figure>
+                  <img
+                    :src="`images/${cat.picture}`"
+                    class="select-none"
+                    alt=""
+                  />
+                </figure>
+                <div class="card-body">
+                  <h5 class="card-title" x-text="cat.name"></h5>
+                  <p x-text="`$${cat.price}`"></p>
+                  <div class="justify-end card-actions">
+                    <button @click="addCatList(cat)" class="btn btn-primary">
+                      <i class="fas fa-cat"></i> 認養
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
+
+          <section class="px-8 mt-12">
+            <h2 class="text-3xl font-bold">認養清單</h2>
+            <table class="table my-2">
+              <thead>
+                <tr class="text-lg">
+                  <th>名字</th>
+                  <th>數量</th>
+                  <th>手續費(10%)</th>
+                  <th>小計</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- item start -->
+                <template x-for="cat in shoppingList">
+                  <tr class="text-lg">
+                    <td x-text="cat.name"></td>
+                    <td>
+                      <input
+                        @change="updateCatCount(cat)"
+                        type="number"
+                        x-model.number="cat.count"
+                        min="1"
+                        class="input input-bordered"
+                      />
+                    </td>
+                    <td
+                      x-text="`${(0.1 * cat.price * cat.count).toFixed(2)}`"
+                    ></td>
+                    <td x-text="cat.price * cat.count"></td>
+                    <td>
+                      <button
+                        @click="deleteItem(cat)"
+                        class="btn btn-xs btn-error btn-primary"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </button>
+                    </td>
+                  </tr>
+                </template>
+
+                <!-- item end -->
+
+                <!-- item end -->
+              </tbody>
+              <tfoot class="text-lg bg-slate-100">
+                <tr>
+                  <td colspan="2"></td>
+                  <td>總價</td>
+                  <td x-text="priceSum.toFixed(2)" class="font-bold">$</td>
+                  <td></td>
+                </tr>
+              </tfoot>
+            </table>
+            <button @click="clearShoppingCart" class="btn btn-warning">
+              <i class="fas fa-baby-carriage"></i> 清空認養清單
+            </button>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

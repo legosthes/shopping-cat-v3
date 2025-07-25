@@ -1,0 +1,41 @@
+{
+  "cats": [
+    {
+      "id": "1",
+      "picture": "cat001.jpg",
+      "name": "老大",
+      "price": 20
+    },
+    {
+      "id": "2",
+      "picture": "cat002.jpg",
+      "name": "貝貝",
+      "price": 15
+    },
+    {
+      "id": "3",
+      "picture": "cat003.jpg",
+      "name": "老虎",
+      "price": 10
+    },
+    {
+      "id": "4",
+      "picture": "cat004.jpg",
+      "name": "胖胖",
+      "price": 8
+    },
+    {
+      "id": "5",
+      "picture": "cat005.jpg",
+      "name": "小花",
+      "price": 9
+    },
+    {
+      "id": "6",
+      "picture": "cat006.jpg",
+      "name": "黑臉",
+      "price": 12.5
+    }
+  ],
+  "shoppingCart": []
+}
