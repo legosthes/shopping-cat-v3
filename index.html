@@ -5,7 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Shopping Cart Practice v3</title>
-    <script type="module" src="｀./src/scripts/app.js"></script>
+    <script type="module" src="./src/scripts/app.js"></script>
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
@@ -51,7 +51,7 @@
                   <h5 class="card-title" x-text="cat.name"></h5>
                   <p x-text="`$${cat.price}`"></p>
                   <div class="justify-end card-actions">
-                    <button @click="addCatList(cat)" class="btn btn-primary">
+                    <button @click.debounce="addCatList(cat)" class="btn btn-primary">
                       <i class="fas fa-cat"></i> 認養
                     </button>
                   </div>
