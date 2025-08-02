@@ -7,6 +7,8 @@
 - FontAwesome
 - Tailwind CSS with DaisyUI
 - Vite
+- Alpine.js
+- Axios
 
 ## Steps
 
